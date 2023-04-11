@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <title>Mergim Halimi</title>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="7QvhpZCp87V4CTHY9h6olTsrOk3y7WtHZMcMvKkPJOc" />
-    <meta name=”image” property=”image” href="resources/images/logo.png">
+    <meta name="google-site-verification" content="7QvhpZCp87V4CTHY9h6olTsrOk3y7WtHZMcMvKkPJOc">
+    <meta name="image" property="image" content="resources/images/logo.png">
     <meta name="author" content="Mergim Halimi">
     <meta name="contact" content="m.halimi123@gmail.com">
     <meta name="publisher" content="Mergim Halimi">
-    <meta name="copyright" content="Mergim Halimi">
     <meta name="description" content="Mergim Halimi, Lead Software Engineer - ROS & BSP">
     <meta name="keywords" content="Mergim, Halimi, Solaborate, Siemens, Mechatronics, University, of, Pristina, Kosovo">
     <meta name="robots" content="index, follow">
@@ -18,88 +18,88 @@
     <meta name="DC.Description" content="Mergim Halimi, Lead Software Engineer - ROS & BSP">
     <meta name="DC.Language" content="en-us">
     <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="resources/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/avenir.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
+    <link rel="stylesheet" href="resources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/avenir.css">
+    <link rel="stylesheet" href="resources/css/layout.css">
 
     <noscript>
-      <style>.btn { position: relative; } #content { top: 200px; } </style>
-    </noscript>
-
-    <script type="text/javascript" src="resources/js/jquery-1.10.2.min.js"></script>
-    <script type='text/javascript' src="resources/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    $(window).load(function(){
-    $('.popoverData').popover();
-    });
-
-    $(function(){
-    function distributeFields() {
-        var radius = ($('#avatar').height() / 2) + 50;
-        var fields = $('.btn'), container = $('#circle'),
-            width = container.width(), height = container.height(),
-            step = (2*Math.PI) / fields.length, angle = 90 + step*2.5;
-        fields.each(function() {
-            var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
-            var y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
-            if(window.console) {
-                console.log($(this).text(), x, y);
+        <style>
+            .btn {
+                position: relative;
             }
-            $(this).css({
-                left: x + 'px',
-                top: y + 'px'
-            });
-            angle += step;
-        });
-    }
 
-    distributeFields();
-    });
+            #content {
+                top: 200px;
+            }
+        </style>
+    </noscript>
+    <script src="resources/js/jquery-1.10.2.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script>
+        $(window).on("load", function () {
+            $('.popoverData').popover();
+            function distributeFields() {
+                var radius = ($('#avatar').height() / 2) + 50;
+                var fields = $('.btn'), container = $('#circle'),
+                    width = container.width(), height = container.height(),
+                    step = (2 * Math.PI) / fields.length, angle = 90 + step * 2.5;
+                fields.each(function () {
+                    var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
+                    var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
+                    $(this).css({
+                        left: x + 'px',
+                        top: y + 'px',
+                        borderRadius: '50%',
+                    });
+                    angle += step;
+                });
+            }
+            distributeFields();
+        });
     </script>
 </head>
 
 <body>
     <div id="content">
-      <div id="circle">
-        <img src="resources/images/avatar.jpg" alt="Mergim Halimi" id="avatar">
-        <noscript><br/></noscript>
-
-        <a href="mailto:m.halimi123@gmail.com" target="_blank"
-            class="btn popoverData" data-content="Email" title="email" rel="popover" data-placement="left" data-trigger="hover">
-            <i class="fa fa-envelope"></i>
-        </a>
-        <a href="tel:+38349590509" target="_blank"
-            class="btn popoverData" data-content="Call" title="call" rel="popover" data-placement="left" data-trigger="hover">
-            <i class="fa fa-phone"></i>
-        </a>
-        <a href="https://twitter.com/HalimiMergim" target="_blank"
-            class="btn popoverData" data-content="Twitter" title="twitter" rel="popover" data-placement="right" data-trigger="hover">
-            <i class="fa fa-twitter"></i>
-        </a>
-        <a href="https://github.com/jimmyhalimi" target="_blank"
-            class="btn popoverData" data-content="Github" title="github" rel="popover" data-placement="right" data-trigger="hover">
-            <i class="fa fa-github"></i>
-        </a>
-        <a href="http://www.linkedin.com/in/mergimhalimi" target="_blank"
-            class="btn popoverData" data-content="Linkedin" title="linkedin" rel="popover" data-placement="right" data-trigger="hover">
-            <i class="fa fa-linkedin"></i>
-        </a>
-        <a href="https://www.xing.com/profile/Mergim_Halimi" target="_blank"
-            class="btn popoverData" data-content="Xing" title="xing" rel="popover" data-placement="right" data-trigger="hover">
-            <i class="fa fa-xing"></i>
-        </a>
-        <a href="https://www.instagram.com/mhelectronic/" target="_blank"
-            class="btn popoverData" data-content="Instagram" title="instagram" rel="popover" data-placement="left" data-trigger="hover">
-            <i class="fa fa-instagram"></i>
-        </a>
-      </div>
+        <div id="circle">
+            <img src="resources/images/avatar.jpg" alt="Mergim Halimi" id="avatar">
+            <noscript><br /></noscript>
+            <a href="mailto:m.halimi123@gmail.com" target="_blank" class="btn popoverData" data-content="Email"
+                title="email" rel="popover" data-placement="left" data-trigger="hover"><i
+                    class="fa fa-envelope"></i></a>
+            <a href="tel:+38349590509" target="_blank" class="btn popoverData" data-content="Call" title="call"
+                rel="popover" data-placement="left" data-trigger="hover"><i class="fa fa-phone"></i></a>
+            <a href="https://twitter.com/HalimiMergim" target="_blank" class="btn popoverData" data-content="Twitter"
+                title="twitter" rel="popover" data-placement="right" data-trigger="hover"><i
+                    class="fa fa-twitter"></i></a>
+            <a href="https://github.com/jimmyhalimi" target="_blank" class="btn popoverData" data-content="Github"
+                title="github" rel="popover" data-placement="right" data-trigger="hover"><i
+                    class="fa fa-github"></i></a>
+            <a href="http://www.linkedin.com/in/mergimhalimi" target="_blank" class="btn popoverData"
+                data-content="Linkedin" title="linkedin" rel="popover" data-placement="right" data-trigger="hover"><i
+                    class="fa fa-linkedin"></i></a>
+            <a href="https://masscalculator.mergimhalimi.com" target="_blank" class="btn popoverData"
+                data-content="Masscalculator" title="masscalculator" rel="popover" data-placement="right"
+                data-trigger="hover"><i class="fa fa-calculator"></i></a>
+            <a href="https://www.xing.com/profile/Mergim_Halimi" target="_blank" class="btn popoverData"
+                data-content="Xing" title="xing" rel="popover" data-placement="right" data-trigger="hover"><i
+                    class="fa fa-xing"></i></a>
+            <a href="https://www.instagram.com/mhelectronic/" target="_blank" class="btn popoverData"
+                data-content="Instagram" title="instagram" rel="popover" data-placement="left" data-trigger="hover"><i
+                    class="fa fa-instagram"></i></a>
+        </div>
         <div id="content_name">Mergim Halimi</div>
         <div id="content_description">
-            Sr. System Software Engineer at <a target="_blank" href="http://wayland.io">Wayland</a> - Ext: <a target="_blank" href="https://www.jnjmedtech.com/en-US/companies/ethicon">Ethicon</a>
-            <br><small>previously: Lead Senior Software Engineer at <a target="_blank" href="http://solaborate.com">Solaborate</a> </small>
-            <br><small>previously: Lead Software Engineer (<a target="_blank" href="https://www.ros.org">ROS</a>) at <a target="_blank" href="http://abidat.de">Abidat</a> - Ext: <a target="_blank" href="https://www.mobility.siemens.com/global/en.html">SIEMENS</a> </small>
-            <br><small>enthusiast: Using CNC machines, 3D printers and lathes in order to build robots and DIY PCB's</small>
+            Sr. System Software Engineer at <a target="_blank" href="http://wayland.io">Wayland</a> - Ext: <a
+                target="_blank" href="https://www.jnjmedtech.com/en-US/companies/ethicon">Ethicon</a>
+            <br><small>previously: Lead Senior Software Engineer at <a target="_blank"
+                    href="http://solaborate.com">Solaborate</a> </small>
+            <br><small>previously: Lead Software Engineer (<a target="_blank" href="https://www.ros.org">ROS</a>) at <a
+                    target="_blank" href="http://abidat.de">Abidat</a> - Ext: <a target="_blank"
+                    href="https://www.mobility.siemens.com/global/en.html">SIEMENS</a> </small>
+            <br><small>enthusiast: Using CNC machines, 3D printers and lathes in order to build robots and DIY
+                PCB's</small>
         </div>
     </div>
 
@@ -111,27 +111,20 @@
         <span itemprop="familyName">Halimi</span>
         <span itemprop="givenName">Mergim</span>
         <span itemprop="honorificPrefix">Bsc.</span>
-
-        <span itemprop="affiliation" itemscope
-           itemtype="http://data-vocabulary.org/Organization">
-           <span itemprop="name">Solaborate</span>
-
-           <span itemprop="location" itemscope
-              itemtype="http://data-vocabulary.org/PostalAddress">
-              <span itemprop="addressLocality">Kosovo</span>
-              <span itemprop="addressCountry">XK</span>
-           </span>
+        <span itemprop="affiliation" itemscope itemtype="http://data-vocabulary.org/Organization">
+            <span itemprop="name">Wayland</span>
+            <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/PostalAddress">
+                <span itemprop="addressLocality">Kosovo</span>
+                <span itemprop="addressCountry">XK</span>
+            </span>
         </span>
-
-        <span itemprop="address" itemscope
-           itemtype="http://data-vocabulary.org/PostalAddress">
-           <span itemprop="addressLocality">Kosovo</span>
-           <span itemprop="addressCountry">XK</span> 
+        <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/PostalAddress">
+            <span itemprop="addressLocality">Kosovo</span>
+            <span itemprop="addressCountry">XK</span>
         </span>
-
-        <a href="http://mergimhalimi.com" itemprop="url">website</span>
+        <a href="http://mergimhalimi.com" itemprop="url">website</a>
         <a href="http://mergimhalimi.com/resources/images/avatar.jpg" itemprop="image">photo</a>
     </div>
-  </body>
+</body>
 
 </html>
