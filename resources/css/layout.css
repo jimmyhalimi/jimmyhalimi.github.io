@@ -59,6 +59,26 @@ body {
     text-decoration: none;
 }
 
+#passion_section {
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+.passion_divider {
+    width: 60px;
+    height: 1px;
+    background-color: #666;
+    margin: 0 auto 1em auto;
+    opacity: 0.6;
+}
+
+.passion_text {
+    font-size: 1.1em;
+    color: #aaa;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
 
 /**********\
 * METADATA *
