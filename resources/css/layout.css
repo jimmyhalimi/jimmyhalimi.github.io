@@ -3,7 +3,7 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 
@@ -19,12 +19,12 @@ body {
 }
 
 #content {
-    width:500px;
-    height:300px;
-    position:absolute;
-    left:50%;
-    top:40%;
-    margin:-150px 0 0 -250px;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    margin: -150px 0 0 -250px;
     font-family: avenir-web, Avenir;
 }
 
@@ -77,18 +77,22 @@ body {
     position: absolute;
 }
 
-#circle .fa {
+#circle .fa,
+#circle .fa-solid,
+#circle .fa-brands {
     font-size: 2em;
     width: 2em;
     height: 2em;
-    color:#555;
+    color: #555;
     padding: 0.5em;
 }
 
-#circle .fa:hover {
-    color:#fff;
+#circle .fa:hover,
+#circle .fa-solid:hover,
+#circle .fa-brands:hover {
+    color: #fff;
     text-shadow: #c0c0c0 0px 0px 5px;
-    abackground-color: #000;
+    background-color: #000;
     border-radius: 100px;
     -moz-border-radius: 100px;
     -webkit-border-radius: 100px;
@@ -106,20 +110,36 @@ body {
     background-color: #f94877;
 }
 
-.fa-twitter:hover {
-    background-color: #00acee;
+#circle .fa-x-twitter:hover {
+    background-color: #000000 !important;
 }
 
-.fa-github:hover {
-    background-color: #171515;
+#circle .fa-github:hover {
+    background-color: #171515 !important;
 }
 
-.fa-linkedin:hover {
-    background-color: #0e76a8;
+#circle .fa-linkedin:hover {
+    background-color: #0e76a8 !important;
 }
 
-.fa-xing:hover {
-    background-color: #126567;
+#circle .fa-xing:hover {
+    background-color: #126567 !important;
+}
+
+#circle .fa-instagram:hover {
+    background-color: #c13584 !important;
+}
+
+#circle .fa-envelope:hover {
+    background-color: #dd4b39 !important;
+}
+
+#circle .fa-phone:hover {
+    background-color: #00ff54 !important;
+}
+
+#circle .fa-calculator:hover {
+    background-color: #ff7932 !important;
 }
 
 .fa-book:hover {
@@ -154,9 +174,16 @@ body {
     background-color: #c13584;
 }
 
-#circle a, #circle a:hover {
+#circle a,
+#circle a:hover {
     text-decoration: none;
 }
 
-.popover-title { display: none; }
-.popover-content { padding-top: 1em; white-space: nowrap; }
+.popover-title {
+    display: none;
+}
+
+.popover-content {
+    padding-top: 1em;
+    white-space: nowrap;
+}
