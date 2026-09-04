@@ -1,109 +1,635 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <title>Mergim Halimi</title>
-    <meta charset="UTF-8">
-    <meta property="og:image" content="resources/images/logo.png">
-    <meta name="author" content="Mergim Halimi">
-    <meta name="description" content="Mergim Halimi, Lead Software Engineer - ROS & BSP">
-    <meta name="keywords"
-        content="Mergim, Halimi, Cybee, CybeeAI, Wayland, Solaborate, Siemens, Johnson & Johnson, Mechatronics, University, of, Pristina, Kosovo">
-    <meta name="robots" content="index, follow">
-    <link rel="icon" href="resources/images/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/avenir.css">
-    <link rel="stylesheet" href="resources/css/layout.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Mergim Halimi — senior software engineer working across embedded Linux, robotics, medical devices, and connected systems.">
+    <title>Mergim Halimi — Software Engineer</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --ink: #f2f3f0;
+            --muted: #a6aaa4;
+            --line: #30332e;
+            --accent: #6ea8fe;
+            --bg: #0d0e0c;
+        }
 
-    <script src="resources/js/jquery-1.10.2.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script>
-        $(window).on("load", function () {
-            $('.popoverData').popover();
-            function distributeFields() {
-                var radius = ($('#avatar').height() / 2) + 50;
-                var fields = $('.btn'), container = $('#circle'),
-                    width = container.width(), height = container.height(),
-                    step = (2 * Math.PI) / fields.length, angle = 90 + step * 2.5;
-                fields.each(function () {
-                    var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
-                    var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
-                    $(this).css({
-                        left: x + 'px',
-                        top: y + 'px',
-                        borderRadius: '50%',
-                    });
-                    angle += step;
-                });
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font: 400 16px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background: linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: linear-gradient(to bottom, black, transparent 70%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 5px;
+        }
+
+        .shell {
+            width: min(1120px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 86px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .mark {
+            font-weight: 700;
+            letter-spacing: -.04em;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            color: var(--muted);
+            font-size: .86rem;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            min-height: calc(100vh - 86px);
+            display: grid;
+            align-content: center;
+            padding: 72px 0;
+            position: relative;
+        }
+
+        .hero h1,
+        .hero .intro,
+        .hero .cta,
+        .hero .socials,
+        .hero .eyebrow {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            max-width: 800px;
+        }
+
+        .portrait {
+            position: absolute;
+            z-index: 1;
+            right: 12px;
+            top: 49%;
+            width: 330px;
+            aspect-ratio: 1;
+            margin: 0;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid rgba(110, 168, 254, .55);
+            background: #070807;
+            box-shadow: 0 0 0 15px rgba(13, 14, 12, .76), 0 0 0 16px rgba(110, 168, 254, .14), 0 28px 100px rgba(0, 0, 0, .55);
+        }
+
+        .portrait::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, transparent 48%, rgba(13, 14, 12, .3));
+            pointer-events: none;
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            filter: saturate(.82) contrast(1.06);
+            display: block;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            margin: 0 0 22px;
+        }
+
+        h1 {
+            font: 600 clamp(3.25rem, 7vw, 6.2rem)/.9 Arial, Helvetica, sans-serif;
+            letter-spacing: -.07em;
+            max-width: 800px;
+            margin: 0;
+        }
+
+        .title-line {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .intro {
+            max-width: 720px;
+            color: var(--muted);
+            font-size: clamp(1rem, 2vw, 1.28rem);
+            margin: 38px 0 34px;
+        }
+
+        .intro strong {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            border: 1px solid var(--line);
+            padding: 11px 16px;
+            font-size: .88rem;
+            transition: .2s ease;
+        }
+
+        .button.primary {
+            background: var(--accent);
+            color: #07111f;
+            border-color: var(--accent);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+            margin-top: 48px;
+            color: var(--muted);
+            font-size: .82rem;
+        }
+
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .socials a::before {
+            content: "↗";
+            color: var(--accent);
+        }
+
+        .socials a:hover {
+            color: var(--ink);
+        }
+
+        section {
+            border-top: 1px solid var(--line);
+            padding: 92px 0;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 54px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: .8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-weight: 500;
+        }
+
+        .lead {
+            margin: 0;
+            max-width: 760px;
+            font: 500 clamp(1.65rem, 4vw, 3.3rem)/1.12 Arial, Helvetica, sans-serif;
+            letter-spacing: -.045em;
+        }
+
+        .capabilities {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 58px;
+            border-top: 1px solid var(--line);
+        }
+
+        .capability {
+            padding: 28px 28px 28px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .capability:nth-child(odd) {
+            border-right: 1px solid var(--line);
+        }
+
+        .capability:nth-child(even) {
+            padding-left: 28px;
+        }
+
+        .capability span {
+            color: var(--muted);
+            display: block;
+            font-size: .78rem;
+            margin-bottom: 12px;
+        }
+
+        .capability h3 {
+            margin: 0 0 8px;
+            font: 600 1.18rem Arial, Helvetica, sans-serif;
+        }
+
+        .capability p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 430px;
+        }
+
+        .work {
+            display: grid;
+            gap: 0;
+        }
+
+        .work-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr auto;
+            gap: 28px;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--line);
+            transition: .2s ease;
+        }
+
+        .work-item:first-child {
+            border-top: 1px solid var(--line);
+        }
+
+        .work-item h3 {
+            margin: 0;
+            font: 600 1.15rem Arial, Helvetica, sans-serif;
+        }
+
+        .work-item p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        a.work-item:hover {
+            padding-left: 14px;
+            color: var(--accent);
+        }
+
+        .work-arrow {
+            color: var(--accent);
+            font-size: 1.25rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 12px;
+        }
+
+        .tags span {
+            border: 1px solid var(--line);
+            color: var(--muted);
+            padding: 3px 7px;
+            font-size: .72rem;
+        }
+
+        .timeline {
+            border-top: 1px solid var(--line);
+        }
+
+        .role {
+            display: grid;
+            grid-template-columns: 150px 1fr 160px;
+            gap: 28px;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .role time,
+        .role .place {
+            color: var(--muted);
+            font-size: .82rem;
+        }
+
+        .role h3 {
+            margin: 0 0 4px;
+            font: 600 1.08rem Arial, Helvetica, sans-serif;
+        }
+
+        .role p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .role .place {
+            text-align: right;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+        }
+
+        .contact p {
+            font: 500 clamp(2rem, 6vw, 5.3rem)/1 Arial, Helvetica, sans-serif;
+            letter-spacing: -.06em;
+            margin: 0;
+            max-width: 850px;
+        }
+
+        .contact-link {
+            color: var(--accent);
+            white-space: nowrap;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        footer {
+            padding: 28px 0 42px;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            font-size: .78rem;
+        }
+
+        @media (max-width:720px) {
+            .shell {
+                width: min(100% - 28px, 1120px);
             }
-            distributeFields();
-        });
-    </script>
+
+            nav {
+                gap: 14px;
+            }
+
+            nav a:nth-child(2),
+            nav a:nth-child(3) {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 94px 0;
+            }
+
+            .hero h1 {
+                max-width: none;
+                font-size: clamp(2.25rem, 10vw, 3.25rem);
+            }
+
+            .portrait {
+                position: relative;
+                right: auto;
+                top: auto;
+                width: min(72vw, 280px);
+                transform: none;
+                margin: 58px 0 0;
+            }
+
+            .section-grid {
+                grid-template-columns: 1fr;
+                gap: 34px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .capabilities {
+                grid-template-columns: 1fr;
+            }
+
+            .capability:nth-child(odd) {
+                border-right: 0;
+            }
+
+            .capability:nth-child(even) {
+                padding-left: 0;
+            }
+
+            .work-item {
+                grid-template-columns: 1fr auto;
+                gap: 9px;
+            }
+
+            .work-item p,
+            .work-item .tags {
+                grid-column: 1 / -1;
+            }
+
+            .role {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .role .place {
+                text-align: left;
+            }
+
+            .contact {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            footer {
+                gap: 18px;
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div id="content">
-        <div id="circle">
-            <img src="resources/images/avatar.jpg" alt="Mergim Halimi" id="avatar">
-            <a href="mailto:m.halimi123@gmail.com" target="_blank" class="btn popoverData" data-content="Email"
-                title="email" rel="popover" data-placement="left" data-trigger="hover"><i
-                    class="fa-solid fa-envelope"></i></a>
-            <a href="tel:+38349590509" target="_blank" class="btn popoverData" data-content="Call" title="call"
-                rel="popover" data-placement="left" data-trigger="hover"><i class="fa-solid fa-phone"></i></a>
-            <a href="https://x.com/HalimiMergim" target="_blank" class="btn popoverData" data-content="X" title="x"
-                rel="popover" data-placement="right" data-trigger="hover"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://github.com/jimmyhalimi" target="_blank" class="btn popoverData" data-content="Github"
-                title="github" rel="popover" data-placement="right" data-trigger="hover"><i
-                    class="fa-brands fa-github"></i></a>
-            <a href="http://www.linkedin.com/in/mergimhalimi" target="_blank" class="btn popoverData"
-                data-content="Linkedin" title="linkedin" rel="popover" data-placement="right" data-trigger="hover"><i
-                    class="fa-brands fa-linkedin"></i></a>
-            <a href="https://masscalculator.mergimhalimi.com" target="_blank" class="btn popoverData"
-                data-content="Masscalculator" title="masscalculator" rel="popover" data-placement="right"
-                data-trigger="hover"><i class="fa-solid fa-calculator"></i></a>
-            <a href="https://www.xing.com/profile/Mergim_Halimi" target="_blank" class="btn popoverData"
-                data-content="Xing" title="xing" rel="popover" data-placement="right" data-trigger="hover"><i
-                    class="fa-brands fa-xing"></i></a>
-            <a href="https://www.instagram.com/mhelectronic/" target="_blank" class="btn popoverData"
-                data-content="Instagram" title="instagram" rel="popover" data-placement="left" data-trigger="hover"><i
-                    class="fa-brands fa-instagram"></i></a>
-        </div>
-        <div id="content_name">Mergim Halimi</div>
-        <div id="content_description">
-            System Software Engineer at <a target="_blank" href="http://cybee.ai">CybeeAI</a>
-            <br><small>previously: System Software Engineer at <a target="_blank"
-                    href="http://wayland.io">Wayland</a> - Ext: <a
-                    target="_blank" href="https://www.karlstorz.com/">Karl Storz</a> </small>
-        </div>
-        <div id="passion_section">
-            <div class="passion_divider"></div>
-            <div class="passion_text">passionate about robotics, medical device development, and custom operating systems for specialized hardware platforms</div>
-        </div>
+    <div class="shell">
+        <header>
+            <a class="mark" href="#top" aria-label="Mergim Halimi home">MH/</a>
+            <nav aria-label="Main navigation">
+                <a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a
+                    href="#contact">Contact</a>
+            </nav>
+        </header>
+        <main id="top">
+            <div class="hero">
+                <p class="eyebrow">Senior Software Engineer at Ivoclar · Prishtina, Kosovo</p>
+                <h1><span class="title-line">Software for the</span><span class="title-line">physical world.</span></h1>
+                <p class="intro">I’m Mergim Halimi. I build reliable systems where <strong>embedded Linux, connected
+                        devices, robotics, and medical technology</strong> meet.</p>
+                <div class="cta"><a class="button primary" href="#work">View selected work</a><a class="button"
+                        href="mailto:m.halimi123@gmail.com">Get in touch</a></div>
+                <div class="socials" aria-label="Profiles and links">
+                    <a href="https://github.com/jimmyhalimi" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/mergimhalimi" target="_blank" rel="noreferrer">LinkedIn</a>
+                    <a href="https://www.instagram.com/mhelectronic/" target="_blank" rel="noreferrer">Instagram</a>
+                </div>
+                <figure class="portrait"><img src="assets/mergim-halimi.webp" alt="Portrait of Mergim Halimi"
+                        width="900" height="900"></figure>
+            </div>
+            <section id="about">
+                <div class="section-grid">
+                    <h2>About</h2>
+                    <div>
+                        <p class="lead">From device interfaces to cloud-connected gateways, I turn complex hardware and
+                            software constraints into maintainable products.</p>
+                        <div class="capabilities">
+                            <article class="capability"><span>01</span>
+                                <h3>Embedded Linux</h3>
+                                <p>Production C++ services, Qt applications, Yocto platforms, system integration, and
+                                    device lifecycle.</p>
+                            </article>
+                            <article class="capability"><span>02</span>
+                                <h3>Connected Devices</h3>
+                                <p>BLE, USB, serial, CAN, MQTT, and secure communication across edge and cloud systems.
+                                </p>
+                            </article>
+                            <article class="capability"><span>03</span>
+                                <h3>Robotics</h3>
+                                <p>Control systems, ROS 2 integration, device communication, and practical hardware
+                                    prototyping.</p>
+                            </article>
+                            <article class="capability"><span>04</span>
+                                <h3>System Architecture</h3>
+                                <p>Clear boundaries, observable services, dependable update paths, and engineering for
+                                    long product lifecycles.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="work">
+                <div class="section-grid">
+                    <h2>Selected work</h2>
+                    <div class="work">
+                        <a class="work-item" href="https://www.clinnect.health" target="_blank" rel="noreferrer">
+                            <h3>Clinnect</h3>
+                            <div>
+                                <p>An edge integration platform connecting medical devices directly with EHR and HIS
+                                    systems, combining local data routing with secure cloud-based configuration.</p>
+                                <div class="tags"><span>C++</span><span>Embedded Linux</span><span>Medical IoT</span>
+                                </div>
+                            </div><span class="work-arrow">↗</span>
+                        </a>
+                        <a class="work-item" href="https://masscalculator.mergimhalimi.com" target="_blank"
+                            rel="noreferrer">
+                            <h3>MassCalculator</h3>
+                            <div>
+                                <p>An open-source engineering tool for calculating material weight and cost across
+                                    common shapes, including STL, DXF, and ERP-oriented workflows.</p>
+                                <div class="tags"><span>Open source</span><span>Engineering tools</span><span>CAD
+                                        data</span></div>
+                            </div><span class="work-arrow">↗</span>
+                        </a>
+                        <article class="work-item">
+                            <h3>RBLinux</h3>
+                            <div>
+                                <p>A reproducible Yocto-based Linux platform with custom Qt and Wayland applications,
+                                    built for dedicated embedded hardware.</p>
+                                <div class="tags"><span>Yocto</span><span>Qt 6</span><span>Wayland</span></div>
+                            </div>
+                        </article>
+                        <a class="work-item" href="https://github.com/jimmyhalimi" target="_blank" rel="noreferrer">
+                            <h3>Robotics & JimmBot</h3>
+                            <div>
+                                <p>Mobile robot software spanning ROS hardware interfaces, motor control, sensors, and
+                                    communication between embedded and high-level components.</p>
+                                <div class="tags"><span>ROS</span><span>C++</span><span>Control</span></div>
+                            </div><span class="work-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="experience">
+                <div class="section-grid">
+                    <h2>Experience</h2>
+                    <div class="timeline">
+                        <article class="role"><time>2026 — now</time>
+                            <div>
+                                <h3>Senior Software Engineer</h3>
+                                <p>Embedded C++ and Qt software for specialized Ivoclar medical systems.</p>
+                            </div><span class="place">digicube · Ivoclar</span>
+                        </article>
+                        <article class="role"><time>2024 — 2026</time>
+                            <div>
+                                <h3>Senior Software Engineer</h3>
+                                <p>System architecture and software for mobile robotics and connected embedded
+                                    platforms.</p>
+                            </div><span class="place">Cybee</span>
+                        </article>
+                        <article class="role"><time>2022 — 2024</time>
+                            <div>
+                                <h3>Senior Software Engineer</h3>
+                                <p>Embedded Linux and medical device software for surgical imaging systems.</p>
+                            </div><span class="place">Wayland · Karl Storz</span>
+                        </article>
+                        <article class="role"><time>2019 — 2022</time>
+                            <div>
+                                <h3>Senior Software Engineer</h3>
+                                <p>Telehealth and collaboration products integrating real-time communication and
+                                    connected hardware.</p>
+                            </div><span class="place">Solaborate</span>
+                        </article>
+                        <article class="role"><time>2017 — 2019</time>
+                            <div>
+                                <h3>Software Engineer</h3>
+                                <p>Industrial and enterprise software engineering for Siemens systems.</p>
+                            </div><span class="place">Abidat · Siemens</span>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section id="contact">
+                <div class="contact">
+                    <p>Have an interesting system to build?</p>
+                    <a class="contact-link" href="mailto:m.halimi123@gmail.com">m.halimi123@gmail.com ↗</a>
+                </div>
+            </section>
+        </main>
+        <footer><span>© <span id="year"></span> Mergim Halimi</span><span>Embedded Linux · Robotics · Connected
+                Systems</span></footer>
     </div>
-
-    <div id="metadata" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Mergim Halimi</span>
-        <span itemprop="jobTitle">System Software Engineer</span>
-        <span itemprop="email">m.halimi123@gmail.com</span>
-        <span itemprop="gender">male</span>
-        <span itemprop="familyName">Halimi</span>
-        <span itemprop="givenName">Mergim</span>
-        <span itemprop="honorificPrefix">Bsc.</span>
-        <span itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
-            <span itemprop="name">Wayland</span>
-            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                <span itemprop="addressLocality">Kosovo</span>
-                <span itemprop="addressCountry">XK</span>
-            </span>
-        </span>
-        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-            <span itemprop="addressLocality">Kosovo</span>
-            <span itemprop="addressCountry">XK</span>
-        </span>
-        <a href="http://mergimhalimi.com" itemprop="url">website</a>
-        <a href="http://mergimhalimi.com/resources/images/avatar.jpg" itemprop="image">photo</a>
-    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>
